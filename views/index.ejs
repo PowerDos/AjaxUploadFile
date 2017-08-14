@@ -3,10 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>上传文件</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
-	<form action="/" method="post" enctype="multipart/form-data" >
-		
-	</form>
+	<div class="container">
+		<h1 class="page-header">Node.js+Express 异步上传文件demo <small> Gavin</small></h1>
+		<form action="/upload" method="post" enctype="multipart/form-data">
+			<input type="file" name="file"/><br>
+			<input type="submit" value="上传文件" class="btn btn-danger" />
+		</form>
+	</div>
 </body>
 </html>
