@@ -10,7 +10,7 @@ var storage = multer.diskStorage({
     filename: function (req, file, cb) {
         // 将保存文件名设置为 时间戳.文件类型 ，比如 15026854834053.png
         console.log(file);
-        var fileName = Date.now() + file.originalname.substring(file.originalname.lastIndexOf('.')-1);
+        var fileName = Date.now() + file.originalname.substring(file.originalname.lastIndexOf('.'));
         cb(null, fileName);
     }
 });
@@ -18,6 +18,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post('/', upload.array('file', 1), function (req, res, next) {
+    json = JSON.stringify(req.body);
+    console.log(json);
     res.render('upload');
 });
 
